@@ -1,9 +1,11 @@
 package com.distillery.themoviedb.network
 
+import com.distillery.themoviedb.data.model.TVDetail
 import com.distillery.themoviedb.data.response.GenresResponse
 import com.distillery.themoviedb.data.response.TVsReponse
 import retrofit2.Retrofit
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -15,13 +17,25 @@ interface TVApi {
      * Get Discover of TV Shows
      */
     @GET("/3/discover/tv")
-    suspend fun getDiscoverTV(@Query("language") language: String): TVsReponse
+    suspend fun getDiscoverTV(): TVsReponse
+
+    /**
+     * Get popular TV Shows
+     */
+    @GET("/3/tv/popular")
+    suspend fun getPopularTV(): TVsReponse
+
+    /**
+     * Get Detail of a TV Shows
+     */
+    @GET("/3/tv/{tv_id}}")
+    suspend fun getTVDetail(@Path("tv_id") id: Long): TVDetail
 
     /**
      * Get genres of TV Shows
      */
     @GET("/3/genre/tv/list")
-    suspend fun getTVGenres(@Query("language") language: String): GenresResponse
+    suspend fun getTVGenres(): GenresResponse
 
     companion object {
         /**

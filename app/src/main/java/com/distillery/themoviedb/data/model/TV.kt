@@ -3,7 +3,7 @@ package com.distillery.themoviedb.data.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class TV(
+sealed class TV(
     @SerializedName("poster_path")
     @Expose
     var posterPath: String? = null,

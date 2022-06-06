@@ -6,6 +6,7 @@ import com.distillery.themoviedb.network.MovieApi
 import com.distillery.themoviedb.network.TVApi
 import com.distillery.themoviedb.network.interceptors.AnalyticsInterceptor
 import com.distillery.themoviedb.network.interceptors.ApiKeyInterceptor
+import com.distillery.themoviedb.network.interceptors.LanguageInterceptor
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -44,14 +45,21 @@ object NetworkModule {
     @Provides
     fun provideOkHttpClient(
         apiKeyInterceptor: ApiKeyInterceptor,
+        languageInterceptor: LanguageInterceptor,
         analyticsInterceptor: AnalyticsInterceptor,
         loggingInterceptor: HttpLoggingInterceptor
     ): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(apiKeyInterceptor)
+            .addInterceptor(languageInterceptor)
             .addInterceptor(analyticsInterceptor)
             .addInterceptor(loggingInterceptor)
             .build()
+
+    @Provides
+    @Singleton
+    fun provideLanguageInterceptor() =
+        LanguageInterceptor()
 
     @Provides
     @Singleton
