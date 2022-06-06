@@ -1,6 +1,7 @@
 package com.distillery.themoviedb.network
 
 import com.distillery.themoviedb.data.response.GenresResponse
+import com.distillery.themoviedb.data.response.MoviesResponse
 import retrofit2.Retrofit
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -11,7 +12,13 @@ import retrofit2.http.Query
 interface MovieApi {
 
     /**
-     * Get genres of movies
+     * Get Discover of Movies
+     */
+    @GET("/3/discover/movie")
+    suspend fun getDiscoverMovies(@Query("language") language: String): MoviesResponse
+
+    /**
+     * Get Genres of Movies
      */
     @GET("/3/genre/movie/list")
     suspend fun getMovieGenres(@Query("language") language: String): GenresResponse

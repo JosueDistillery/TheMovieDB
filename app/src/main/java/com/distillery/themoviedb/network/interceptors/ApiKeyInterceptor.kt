@@ -10,9 +10,8 @@ class ApiKeyInterceptor: Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
-        val originalUrl = originalRequest.url
 
-        val url = originalUrl.newBuilder()
+        val url = originalRequest.url.newBuilder()
             .addQueryParameter(API_KEY_QUERY, BuildConfig.TMDB_API_KEY)
             .build()
 

@@ -1,6 +1,7 @@
 package com.distillery.themoviedb.network
 
 import com.distillery.themoviedb.data.response.GenresResponse
+import com.distillery.themoviedb.data.response.TVsReponse
 import retrofit2.Retrofit
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -9,6 +10,12 @@ import retrofit2.http.Query
  * Service to make API calls for TV data
  */
 interface TVApi {
+
+    /**
+     * Get Discover of TV Shows
+     */
+    @GET("/3/discover/tv")
+    suspend fun getDiscoverTV(@Query("language") language: String): TVsReponse
 
     /**
      * Get genres of TV Shows

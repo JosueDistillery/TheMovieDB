@@ -16,8 +16,8 @@ class MainViewModel @Inject constructor(
 
     fun getGenres() {
         viewModelScope.launch(Dispatchers.IO) {
-            var genresResponse = movieApi.getMovieGenres("en-US")
-            Log.d("MainViewModel", genresResponse.genres.toString())
+            var genresResponse = movieApi.getDiscoverMovies("en-US")
+            Log.d("MainViewModel", genresResponse.results.toString())
         }
     }
 }

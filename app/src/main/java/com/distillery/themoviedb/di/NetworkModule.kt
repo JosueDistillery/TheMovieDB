@@ -7,7 +7,6 @@ import com.distillery.themoviedb.network.TVApi
 import com.distillery.themoviedb.network.interceptors.AnalyticsInterceptor
 import com.distillery.themoviedb.network.interceptors.ApiKeyInterceptor
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
