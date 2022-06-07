@@ -45,7 +45,7 @@ data class MovieDetail(
     var posterPath: String? = null,*/
     @SerializedName("production_companies")
     @Expose
-    var productionCompanies: List<ProductionCompany>? = null,
+    var productionCompanies: List<Company>? = null,
     @SerializedName("production_countries")
     @Expose
     var productionCountries: List<ProductionCountry>? = null,

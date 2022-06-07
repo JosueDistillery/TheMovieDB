@@ -3,7 +3,7 @@ package com.distillery.themoviedb.data.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class ProductionCompany(
+sealed class TVNetwork(
     @SerializedName("name")
     @Expose
     var name: String? = null,

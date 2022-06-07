@@ -45,7 +45,7 @@ data class TVDetail(
     var nextEpisodeToAir: Episode? = null,
     @SerializedName("networks")
     @Expose
-    var networks: List<Network>? = null,
+    var TVNetworks: List<TVNetwork>? = null,
     @SerializedName("number_of_episodes")
     @Expose
     var numberOfEpisodes: Int? = null,
@@ -72,7 +72,7 @@ data class TVDetail(
     var posterPath: String? = null,*/
     @SerializedName("production_companies")
     @Expose
-    var productionCompanies: List<ProductionCompany>? = null,
+    var productionCompanies: List<Company>? = null,
     @SerializedName("production_countries")
     @Expose
     var productionCountries: List<ProductionCountry>? = null,

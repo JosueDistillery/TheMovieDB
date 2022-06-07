@@ -12,30 +12,29 @@ import retrofit2.http.Query
  * Service to make API calls for TV data
  */
 interface TVApi {
-
     /**
      * Get Discover of TV Shows
      */
     @GET("/3/discover/tv")
-    suspend fun getDiscoverTV(): TVsReponse
+    suspend fun getDiscover(): TVsReponse
 
     /**
      * Get popular TV Shows
      */
     @GET("/3/tv/popular")
-    suspend fun getPopularTV(): TVsReponse
+    suspend fun getPopular(): TVsReponse
 
     /**
      * Get Detail of a TV Shows
      */
-    @GET("/3/tv/{tv_id}}")
-    suspend fun getTVDetail(@Path("tv_id") id: Long): TVDetail
+    @GET("/3/tv/{tv_id}")
+    suspend fun getDetail(@Path("tv_id") tvId: Long): TVDetail
 
     /**
      * Get genres of TV Shows
      */
     @GET("/3/genre/tv/list")
-    suspend fun getTVGenres(): GenresResponse
+    suspend fun getGenres(): GenresResponse
 
     companion object {
         /**

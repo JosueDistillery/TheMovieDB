@@ -13,30 +13,35 @@ import retrofit2.http.Query
  * Service to make API calls for movies data
  */
 interface MovieApi {
-
     /**
      * Get Discover of Movies
      */
     @GET("/3/discover/movie")
-    suspend fun getDiscoverMovies(): MoviesResponse
+    suspend fun getDiscover(): MoviesResponse
 
     /**
      * Get popular Movies
      */
     @GET("/3/movie/popular")
-    fun getPopularMovies(): MoviesResponse
+    suspend fun getPopular(): MoviesResponse
+
+    /**
+     * Get Similar Movies
+     */
+    @GET("/3/movie/{movie_id}/popular")
+    suspend fun getSimilar(@Path("movie_id") movieId: Long, @Query("page") page: Int?= null): MoviesResponse
 
     /**
      * Get details of a Movie
      */
-    @GET("/3/movie/{id}")
-    fun getMovieDetail(@Path("id") id: Long): MovieDetail
+    @GET("/3/movie/{movie_id}")
+    suspend fun getDetail(@Path("movie_id") movieId: Long): MovieDetail
 
     /**
      * Get Genres of Movies
      */
     @GET("/3/genre/movie/list")
-    suspend fun getMovieGenres(): GenresResponse
+    suspend fun getGenres(): GenresResponse
 
     companion object {
         /**
